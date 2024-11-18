@@ -6,7 +6,7 @@
   --light: #ffffff;
   --error: #f12369;
 
-  --font: "Nunito", sans-serif;
+  --font: 'Nunito', sans-serif;
   --textSize: 16px;
 }
 
@@ -133,7 +133,6 @@ body {
 }
 
 .screen .title {
-  margin-top: 6.625rem;
   font-size: 56px;
   font-weight: bold;
 }
@@ -295,7 +294,7 @@ body {
 }
 
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -313,7 +312,7 @@ body {
   left: 6px;
   width: 10px;
   height: 10px;
-  background: url("../images/check.png") no-repeat center center;
+  background: url('../images/check.png') no-repeat center center;
   background-size: contain;
 }
 

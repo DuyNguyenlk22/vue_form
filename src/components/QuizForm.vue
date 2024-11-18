@@ -10,13 +10,13 @@
               <div class="form-item col">
                 <label for="name">What is your full name?</label>
                 <input
-                  id="name"
                   :class="{ error: error.status, success: success.status }"
+                  id="name"
                   type="text"
                   placeholder="John Smith"
                   v-model="quiz.fullName" />
-                <p class="error-text" v-if="error.status">{{ error.text }}</p>
-                <p class="success-text" v-if="success.status">
+                <p v-if="error.status" class="error-text">{{ error.text }}</p>
+                <p v-if="success.status" class="success-text">
                   {{ success.text }}
                 </p>
               </div>
@@ -33,7 +33,7 @@
           <div class="section options">
             <p>What sort of creative work do you need help with? You can read about our services</p>
             <div class="row">
-              <div class="col-4" v-for="option in jobOptions" :key="option.id">
+              <div class="col-4" v-for="option in jobOption" :key="option.id">
                 <div
                   class="block"
                   :style="{
@@ -60,7 +60,7 @@
               <textarea
                 id="about"
                 placeholder="Hey RHP Team, I’d love  to talk to you about  branding this Something AI  project we’re working..."
-                v-model="quiz.desc" />
+                v-model="quiz.desc"></textarea>
             </div>
             <div class="form-item">
               <ul class="items">
@@ -119,7 +119,7 @@ export default {
   data() {
     return {
       quiz: {
-        fullName: 'Sky Albert',
+        fullName: '',
         email: '',
         desc: '',
         jobs: [],
@@ -132,7 +132,7 @@ export default {
         text: '',
         status: false,
       },
-      jobOptions: [
+      jobOption: [
         {
           id: 1,
           name: 'Branding',
@@ -177,12 +177,12 @@ export default {
       console.log(this.quiz);
       if (this.quiz.fullName.length < 6 || this.quiz.fullName.length > 18) {
         this.error = {
-          text: 'Look failed! Full Name should be 6-18 characters.',
+          text: 'Look failed! Full name should be 6-18 characters',
           status: true,
         };
-      } else if (this.quiz.fullName.length > 5 && this.quiz.fullName.length < 19) {
+      } else if (this.quiz.fullName.length >= 6 && this.quiz.fullName.length <= 18) {
         this.success = {
-          text: 'Look great!',
+          text: 'Look great',
           status: true,
         };
       } else {

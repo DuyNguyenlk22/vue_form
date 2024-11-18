@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import QuizForm from "./components/QuizForm.vue";
+import QuizForm from './components/QuizForm.vue';
 export default {
-  name: "App",
+  name: 'App',
   components: {
     QuizForm,
   },
